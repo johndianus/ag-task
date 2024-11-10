@@ -22,3 +22,19 @@ export interface SearchProps {
 export interface WeatherDetailsProps{
   location: Location | null;
 }
+
+export interface WeatherInfo{
+  timezone: string;
+  daily_units:{
+    temperature_2m_max: string
+    temperature_2m_min: string
+    windspeed_10m_max: string
+  }
+  daily:{
+    time: string[]
+    weather_code:number[]
+    temperature_2m_max:number[]
+    temperature_2m_min:number[]
+    windspeed_10m_max:number[]
+  }
+}
