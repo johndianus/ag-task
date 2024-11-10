@@ -19,3 +19,6 @@ export interface SearchProps {
   setLocation: React.Dispatch<React.SetStateAction<Location | null>>;
 }
 
+export interface WeatherDetailsProps{
+  location: Location | null;
+}
