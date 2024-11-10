@@ -8,3 +8,10 @@ export const Container = styled.div`
   height: 100vh;
   background-color: ${Colors.primary} ;
 `;
+
+export const SearchWrapper = styled.div`
+  margin-top: 20px;
+  width: 100%;
+  min-width: 400px;
+  flex-grow: 0;
+`;

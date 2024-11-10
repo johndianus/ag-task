@@ -14,3 +14,8 @@ export interface OptionType {
     name: string | null;
   };
 }
+
+export interface SearchProps {
+  setLocation: React.Dispatch<React.SetStateAction<Location | null>>;
+}
+
