@@ -38,3 +38,8 @@ export interface WeatherInfo{
     windspeed_10m_max:number[]
   }
 }
+
+export type WeatherDescription = {
+  name: string;
+  icon: string;
+};

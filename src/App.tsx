@@ -9,6 +9,7 @@ const App: React.FC = () => {
 
   return(
   <Container>
+    <div style={{width:'100%', textAlign:'center'}}><h3>Weather Forecast</h3></div>
     <Search setLocation={setLocation}/>
     <WeatherDetails location={location}/>
   </Container>)
