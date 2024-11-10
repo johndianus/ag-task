@@ -2,17 +2,21 @@ import React, { useState, useEffect} from 'react';
 import { Container} from './App.Styles'
 import Select, { SingleValue, ActionMeta } from 'react-select';
 import { Location, OptionType } from './types';
+import { useAddDelay } from './utils';
 
-const App = () =>{
+const App: React.FC = () => {  
   const [options, setOptions] = useState<OptionType[]>([]);
   const [query, setQuery] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [location, setLocation] = useState<Location | null>(null);
 
+  const delayQuery = useAddDelay(query, 1000);
+
   const fetchCities = async () => {
+    if (!delayQuery) return;
     setIsLoading(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}search?name=${query}&count=10&language=en&format=json`);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}search?name=${delayQuery}&count=10&language=en&format=json`);
       const data = await response.json();
       console.log(data);
       const locations = data?.results?.map((city: Location) => ({
@@ -28,8 +32,13 @@ const App = () =>{
   }
 
   useEffect(() => {
+    if (delayQuery) {
       fetchCities();
-  }, [query]);
+    } else {
+      setOptions([]);
+      setIsLoading(false);
+    }
+  }, [delayQuery]);
 
   const handleInputChange = (inputValue: string) => {
     if (!inputValue) {
