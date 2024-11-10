@@ -18,7 +18,6 @@ const Search: React.FC<SearchProps> = ({setLocation}) => {
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}search?name=${delayQuery}&count=10&language=en&format=json`);
       const data = await response.json();
-      console.log(data);
       const locations = data?.results?.map((city: Location) => ({
         label: `${city.name}, ${city.country}`,
         value: { latitude: city.latitude, longitude: city.longitude, name: city.name },

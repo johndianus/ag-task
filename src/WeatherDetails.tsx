@@ -27,16 +27,12 @@ const WeatherDetails: React.FC<WeatherDetailsProps> = ({location}) => {
     fetchWeatherDetails();
   },[location])  
 
-  if (!location) {
-    return <div style={{width:'100%', textAlign:'center'}}><p>Location not selected</p></div>
-  }
   if (isLoading) {
     return <div style={{width:'100%', textAlign:'center'}}><p>Loading..Please wait...</p></div>
   }
   if (isError) {
     return <div style={{width:'100%', textAlign:'center'}}><p>Somewthing went wrong, please select again</p></div>
   }
-  console.log(location);
   return(
     <Container>
       {weatherDet?.daily?.time.map((t,i)=>(

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Colors } from './colors';
 
 export const Container = styled.div`
   display: grid;
@@ -18,7 +19,13 @@ export const Grid = styled.div`
   height: 320px;
   border: 1px solid grey;
   border-radius: 4px;
-  background-color: #B3E5FC;
+  background-color: ${Colors.secondary};
+  transition: transform 0.1s ease-in-out;
+  &:hover {
+    transform: scale(1.01);
+    background-color: ${Colors.tertiory};
+    box-shadow: 4px 4px rgb(0 0 0 / 0.2);
+  }
 `;
 
 export const WeatherIcon = styled.span`
